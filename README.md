@@ -68,7 +68,7 @@ Restrict the agent port with a firewall/private network where possible because t
 ## Install / repair
 Run as root on the LXD host:
 ```bash
-sudo bash setup_rgnodes.sh
+sudo bash setup.sh
 ```
 
 The installer is non-interactive and repairs missing packages/configuration. It preserves an existing `.env` and `vps.db`. Node.js 20 is not used as the fallback target; the setup prefers Node.js 24.x LTS in 2026.
@@ -129,7 +129,7 @@ Do not use a loopback address such as `127.0.0.1` for a public access endpoint. 
 ## Validation
 ```bash
 python3 -m py_compile bot.py node-agent.py
-bash -n setup_rgnodes.sh
+bash -n setup.sh
 node --check ecosystem.config.js
 systemctl status bot --no-pager
 pm2 list
